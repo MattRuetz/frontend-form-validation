@@ -42,10 +42,25 @@ const validateForm = () => {
     }
 }
 
+const storeFormData = () => {
+    const user = {
+        //This is why its good to add name='' parameter to form inputs
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        website: form.website.value,
+        password: form.password.value,
+    };
+    console.log(user);
+}
+
 const processFormData = (e) => {
     e.preventDefault();
     //Validate Form
     validateForm();
+    if(isValid && passwordsMatch) {
+        storeFormData();
+    }
 }
 
 // Event Listener
